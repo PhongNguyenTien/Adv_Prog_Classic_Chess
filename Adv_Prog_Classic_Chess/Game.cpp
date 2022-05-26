@@ -1,39 +1,39 @@
 #include "Game.h"
 #include <string>
-
+#include <iostream>
 Game::Game(SDL_BaseHandler* handler)
-    :   WhitePawn1(new Pawn(WHITE, Position(0, 1), handler)),
-        WhitePawn2(new Pawn(WHITE, Position(1, 1), handler)),
-        WhitePawn3(new Pawn(WHITE, Position(2, 1), handler)),
-        WhitePawn4(new Pawn(WHITE, Position(3, 1), handler)),
-        WhitePawn5(new Pawn(WHITE, Position(4, 1), handler)),
-        WhitePawn6(new Pawn(WHITE, Position(5, 1), handler)),
-        WhitePawn7(new Pawn(WHITE, Position(6, 1), handler)),
-        WhitePawn8(new Pawn(WHITE, Position(7, 1), handler)),
-        BlackPawn1(new Pawn(BLACK, Position(0, 6), handler)),
-        BlackPawn2(new Pawn(BLACK, Position(1, 6), handler)),
-        BlackPawn3(new Pawn(BLACK, Position(2, 6), handler)),
-        BlackPawn4(new Pawn(BLACK, Position(3, 6), handler)),
-        BlackPawn5(new Pawn(BLACK, Position(4, 6), handler)),
-        BlackPawn6(new Pawn(BLACK, Position(5, 6), handler)),
-        BlackPawn7(new Pawn(BLACK, Position(6, 6), handler)),
-        BlackPawn8(new Pawn(BLACK, Position(7, 6), handler)),
-        BlackRook1(new Rook(BLACK, Position(0, 7), handler)),
-        BlackRook2(new Rook(BLACK, Position(7, 7), handler)),
-        WhiteRook1(new Rook(WHITE, Position(0, 0), handler)),
-        WhiteRook2(new Rook(WHITE, Position(7, 0), handler)),
-        BlackKnight1(new Knight(BLACK, Position(1, 7), handler)),
-        BlackKnight2(new Knight(BLACK, Position(6, 7), handler)),
-        WhiteKnight1(new Knight(WHITE, Position(1, 0), handler)),
-        WhiteKnight2(new Knight(WHITE, Position(6, 0), handler)),
-        BlackBishop1(new Bishop(BLACK, Position(2, 7), handler)),
-        BlackBishop2(new Bishop(BLACK, Position(5, 7), handler)),
-        WhiteBishop1(new Bishop(WHITE, Position(2, 0), handler)),
-        WhiteBishop2(new Bishop(WHITE, Position(5, 0), handler)),
-        BlackKing(new King(BLACK, Position(4, 7), handler)),
-        WhiteKing(new King(WHITE, Position(4, 0), handler)),
-        BlackQueen(new Queen(BLACK, Position(3, 7), handler)),
-        WhiteQueen(new Queen(WHITE, Position(3, 0), handler)),
+    : WhitePawn1(new Pawn(WHITE, Position(0, 1), handler)),
+    WhitePawn2(new Pawn(WHITE, Position(1, 1), handler)),
+    WhitePawn3(new Pawn(WHITE, Position(2, 1), handler)),
+    WhitePawn4(new Pawn(WHITE, Position(3, 1), handler)),
+    WhitePawn5(new Pawn(WHITE, Position(4, 1), handler)),
+    WhitePawn6(new Pawn(WHITE, Position(5, 1), handler)),
+    WhitePawn7(new Pawn(WHITE, Position(6, 1), handler)),
+    WhitePawn8(new Pawn(WHITE, Position(7, 1), handler)),
+    BlackPawn1(new Pawn(BLACK, Position(0, 6), handler)),
+    BlackPawn2(new Pawn(BLACK, Position(1, 6), handler)),
+    BlackPawn3(new Pawn(BLACK, Position(2, 6), handler)),
+    BlackPawn4(new Pawn(BLACK, Position(3, 6), handler)),
+    BlackPawn5(new Pawn(BLACK, Position(4, 6), handler)),
+    BlackPawn6(new Pawn(BLACK, Position(5, 6), handler)),
+    BlackPawn7(new Pawn(BLACK, Position(6, 6), handler)),
+    BlackPawn8(new Pawn(BLACK, Position(7, 6), handler)),
+    BlackRook1(new Rook(BLACK, Position(0, 7), handler)),
+    BlackRook2(new Rook(BLACK, Position(7, 7), handler)),
+    WhiteRook1(new Rook(WHITE, Position(0, 0), handler)),
+    WhiteRook2(new Rook(WHITE, Position(7, 0), handler)),
+    BlackKnight1(new Knight(BLACK, Position(1, 7), handler)),
+    BlackKnight2(new Knight(BLACK, Position(6, 7), handler)),
+    WhiteKnight1(new Knight(WHITE, Position(1, 0), handler)),
+    WhiteKnight2(new Knight(WHITE, Position(6, 0), handler)),
+    BlackBishop1(new Bishop(BLACK, Position(2, 7), handler)),
+    BlackBishop2(new Bishop(BLACK, Position(5, 7), handler)),
+    WhiteBishop1(new Bishop(WHITE, Position(2, 0), handler)),
+    WhiteBishop2(new Bishop(WHITE, Position(5, 0), handler)),
+    BlackKing(new King(BLACK, Position(4, 7), handler)),
+    WhiteKing(new King(WHITE, Position(4, 0), handler)),
+    BlackQueen(new Queen(BLACK, Position(3, 7), handler)),
+    WhiteQueen(new Queen(WHITE, Position(3, 0), handler)),
 
     turn(WHITE),
     m_handler(handler),
@@ -211,31 +211,31 @@ void Game::exchange(int xStart, int yStart, int xEnd, int yEnd)
         text_knight = m_handler->loadImage("image\\blackKnight.png");
         text_bishop = m_handler->loadImage("image\\blackBishop.png");
         text_queen = m_handler->loadImage("image\\blackQueen.png");
-        y_draw = 3 * m_handler->SCREEN_HEIGHT / 4;
+        y_draw = 7 * m_handler->SCREEN_HEIGHT / 8;
         team = BLACK;
     }
 
     SDL_SetRenderDrawColor(m_handler->m_renderer, 128, 64, 0, 255);
     SDL_Rect rectangle = { 0,
                           y_draw,
-                          m_handler->SCREEN_WIDTH / 4,
-                          m_handler->SCREEN_HEIGHT / 4 };
+                          m_handler->SCREEN_WIDTH / 8,
+                          m_handler->SCREEN_HEIGHT / 8 };
     SDL_RenderFillRect(m_handler->m_renderer, &rectangle);
     SDL_Rect src = { 0, 0, 60, 60 };
     m_handler->DrawRectangle(src, rectangle, text_rook);
 
     SDL_SetRenderDrawColor(m_handler->m_renderer, 255, 255, 255, 255);
-    rectangle.x = m_handler->SCREEN_WIDTH / 4;
+    rectangle.x = m_handler->SCREEN_WIDTH / 8;
     SDL_RenderFillRect(m_handler->m_renderer, &rectangle);
     m_handler->DrawRectangle(src, rectangle, text_knight);
 
     SDL_SetRenderDrawColor(m_handler->m_renderer, 128, 64, 0, 255);
-    rectangle.x = 2 * m_handler->SCREEN_WIDTH / 4;
+    rectangle.x = 2 * m_handler->SCREEN_WIDTH / 8;
     SDL_RenderFillRect(m_handler->m_renderer, &rectangle);
     m_handler->DrawRectangle(src, rectangle, text_bishop);
 
     SDL_SetRenderDrawColor(m_handler->m_renderer, 255, 255, 255, 255);
-    rectangle.x = 3 * m_handler->SCREEN_WIDTH / 4;
+    rectangle.x = 3 * m_handler->SCREEN_WIDTH / 8;
     SDL_RenderFillRect(m_handler->m_renderer, &rectangle);
     m_handler->DrawRectangle(src, rectangle, text_queen);
 
@@ -256,10 +256,10 @@ void Game::exchange(int xStart, int yStart, int xEnd, int yEnd)
 
             if (m_handler->m_event.type == SDL_MOUSEBUTTONDOWN)
             {
-                x = m_handler->m_event.button.x / 160;
-                y = m_handler->m_event.button.y / 160;
+                x = m_handler->m_event.button.x / 80;
+                y = m_handler->m_event.button.y / 80;
 
-                if (y >= y_draw / 160 && y < y_draw / 160 + 1)
+                if (y >= y_draw / 80 && y < y_draw / 80 + 1)
                 {
                     if (x < m_handler->SCREEN_WIDTH / 640)
                     {
@@ -384,15 +384,10 @@ int Game::gameState()
 
         if (turn == BLACK)
         {
-
-            //SDL_Texture* result = m_handler->loadImage("image\\blackwin.png");
-            //m_handler->DrawRectangle(src, rectangle, result);
             return 1;
         }
         else
         {
-            //SDL_Texture* result = m_handler->loadImage("image\\whitewin.png");
-            //m_handler->DrawRectangle(src, rectangle, result);
             return 2;
         }
     }
