@@ -28,7 +28,7 @@ A simple program which is relevant to SDL2 libraries and C++.
 - Có chức năng phong cấp cho tốt và chức năng nhập thành.
 - Báo hiệu game kết thúc khi 1 trong 2 bên bị chiếu hết hoặc hòa cờ.
 - Có nhạc nền và hiệu ứng âm thanh khi chơi.
-- Link video demo:
+- Link video demo: https://www.youtube.com/watch?v=e_6DyGYfkco
 ## Các kĩ thuật được sử dụng
 - Chương trình chạy trên C++14, x64, sử dụng Visual Studio 2022.
 - Thư viện đồ họa: SDL2, SDL2_image, SDL2_mixer.
