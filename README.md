@@ -1,7 +1,7 @@
 # Adv_Prog_Classic_Chess
 A simple program which is relevant to SDL2 libraries and C++.
 ## Hướng dẫn cài đặt 
-- Cài đặt Visual Studio 2022 (link: https://visualstudio.microsoft.com/vs/ )
+- Sử dụng Visual Studio 2022 (link: https://visualstudio.microsoft.com/vs/ )
 - Cài đặt thư viện SDL2, SDL_image và SDL2_mixer cho hệ điều hành thích hợp (link: https://lazyfoo.net/tutorials/SDL/ )
 - Giải nén file zip SDL2, SDL2_image-2.0.5 và SDL2_mixer, đặt thư mục nhận được khi giải nén vào ổ C trong máy.
 - Tạo 1 folder mới trên máy, đặt tên là Adv_Prog_Classic_Chess.
